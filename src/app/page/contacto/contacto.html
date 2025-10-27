@@ -84,7 +84,9 @@
         }
     </div>
 
-    <div>
-        <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+    <div class="button-group">
+      <a routerLink="/home" class="btn btn-secondary">Cancelar</a>
+      <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
     </div>
+
 </form>

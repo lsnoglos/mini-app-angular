@@ -1,1 +1,29 @@
-<p>home works!</p>
+<div class="home-container">
+
+    <div class="home-header">
+        <h2>Registro de Contacto</h2>
+        <a routerLink="/contacto" class="btn-primary">
+            + Registrar Nuevo
+        </a>
+    </div>
+
+    @if (submissions.length === 0) {
+    <div class="no-submissions">
+        <p>Aún no hay contactos. ¡Registra uno!</p>
+        <a routerLink="/contacto" class="btn-secondary">Registrar</a>
+    </div>
+    } @else {
+    <div class="submissions-list">
+        @for (item of submissions; track $index) {
+        <div class="submission-card">
+            <h3>{{ item.nombreCompleto }}</h3>
+            <p class="card-email">{{ item.email }}</p>
+            @if (item.telefono) {
+            <p class="card-phone"><strong>Tel:</strong> {{ item.telefono }}</p>
+            }
+            <p class="card-message">"{{ item.mensaje }}"</p>
+        </div>
+        }
+    </div>
+    }
+</div>

@@ -73,6 +73,37 @@ input[type="checkbox"] {
     font-weight: 500;
 }
 
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn-secondary {
+  width: auto;
+  padding: 0.85rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.btn-secondary {
+  border: 1px solid #ccc;
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: 600;
+}
+
+.btn-secondary:hover {
+  background-color: #e9ecef;
+  border-color: #bbb;
+  transform: translateY(-2px);
+}
+
 button[type="submit"] {
     width: 100%;
     padding: 0.85rem;

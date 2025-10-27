@@ -1,20 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contacto',
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './contacto.html',
   styleUrl: './contacto.css',
 })
 export class Contacto implements OnInit {
 
-  private fb = inject(FormBuilder); // Inyección de FormBuilder
+  private fb = inject(FormBuilder);
 
   contactForm!: FormGroup<{
     nombreCompleto: FormControl<string>;
@@ -41,16 +43,25 @@ export class Contacto implements OnInit {
     return this.contactForm.controls;
   }
 
-  onSubmit(): void {
+  onSubmit(): void { 
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
-      this.mensajeExito = '';
+      this.mensajeExito = ''; 
       return;
     }
 
     console.log('Formulario Enviado:', this.contactForm.value);
-    this.mensajeExito = '¡Gracias por tu mensaje! Te contactaremos pronto.';
 
+    try {
+      const submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+      submissions.push(this.contactForm.value);
+      localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+    } catch (error) {
+      console.error('Error al guardar en LocalStorage:', error);
+    }
+
+    this.mensajeExito = '¡Gracias por tu mensaje! Te contactaremos pronto.';
+    
     this.contactForm.reset();
   }
 }

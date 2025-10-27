@@ -1,0 +1,99 @@
+.home-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 1.5rem;
+}
+
+.home-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+}
+.btn-secondary:hover {
+  background-color: #e0e0e0;
+}
+
+
+.submissions-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.submission-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.submission-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.submission-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #007bff;
+  font-size: 1.15rem;
+}
+
+.submission-card .card-email {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+
+.submission-card .card-phone {
+  font-size: 0.9em;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.submission-card .card-message {
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: #444;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

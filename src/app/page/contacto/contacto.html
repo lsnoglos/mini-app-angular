@@ -1,1 +1,29 @@
-<p>contacto works!</p>
+<h2>Formulario de Contacto</h2>
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Nombre Completo:</label>
+        <input id="name" type="text" formControlName="nombreCompleto" />
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email" />   
+    </div>
+    <div>
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" type="text" formControlName="telefono" />
+    </div>
+    <div>
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" formControlName="mensaje"></textarea>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" formControlName="aceptarTerminos" />
+            Acepto los términos y condiciones
+        </label>
+    </div>
+    <div>
+        <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+    </div>
+</form>

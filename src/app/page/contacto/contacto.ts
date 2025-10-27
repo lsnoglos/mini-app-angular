@@ -23,7 +23,7 @@ export class Contacto implements OnInit {
     this.contactForm = this.fb.group({
       nombreCompleto: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      telefono: ['', [Validators.required, Validators.pattern('/^\d{13}$/')]],
+      telefono: ['', [Validators.required, Validators.pattern(/^\d{13}$/)]],
       mensaje: ['', [Validators.required, Validators.minLength(50)]],
       aceptarTerminos: [false, [Validators.requiredTrue]]
     });
@@ -31,5 +31,9 @@ export class Contacto implements OnInit {
 
   get f() {
     return this.contactForm.controls;
+  }
+
+  onSubmit(): void { 
+    console.log(this.contactForm.value);
   }
 }

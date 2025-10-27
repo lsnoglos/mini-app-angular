@@ -17,6 +17,7 @@ export class Contacto implements OnInit {
   private fb = inject(FormBuilder); // Inyección de FormBuilder
 
   contactForm!: FormGroup;
+  mensajeExito: string = '';
 
   ngOnInit(): void {
 
@@ -34,6 +35,15 @@ export class Contacto implements OnInit {
   }
 
   onSubmit(): void { 
-    console.log(this.contactForm.value);
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+      this.mensajeExito = ''; 
+      return;
+    }
+
+    console.log('Formulario Enviado:', this.contactForm.value);
+    this.mensajeExito = '¡Gracias por tu mensaje! Te contactaremos pronto.';
+    
+    this.contactForm.reset();
   }
 }

@@ -1,5 +1,11 @@
 <h2>Formulario de Contacto</h2>
 
+@if (mensajeExito) {
+<div class="success-message">
+    {{ mensajeExito }}
+</div>
+}
+
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
     <div>

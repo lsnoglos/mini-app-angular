@@ -1,28 +1,86 @@
 <h2>Formulario de Contacto</h2>
 
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
     <div>
         <label for="name">Nombre Completo:</label>
         <input id="name" type="text" formControlName="nombreCompleto" />
+
+        @if (f['nombreCompleto'].invalid && (f['nombreCompleto'].dirty || f['nombreCompleto'].touched)) {
+        <div class="error-message">
+            @if (f['nombreCompleto'].errors?.['required']) {
+            <div>El nombre completo es requerido.</div>
+            }
+            @if (f['nombreCompleto'].errors?.['minlength']) {
+            <div>El nombre debe tener al menos 3 caracteres.</div>
+            }
+        </div>
+        }
     </div>
+
     <div>
         <label for="email">Email:</label>
-        <input id="email" type="email" formControlName="email" />   
+        <input id="email" type="email" formControlName="email" />
+
+        @if (f['email'].invalid && (f['email'].dirty || f['email'].touched)) {
+        <div class="error-message">
+            @if (f['email'].errors?.['required']) {
+            <div>El email es requerido.</div>
+            }
+            @if (f['email'].errors?.['email']) {
+            <div>El formato del email no es válido.</div>
+            }
+        </div>
+        }
     </div>
+
     <div>
         <label for="telefono">Teléfono</label>
         <input id="telefono" type="text" formControlName="telefono" />
+
+        @if (f['telefono'].invalid && (f['telefono'].dirty || f['telefono'].touched)) {
+        <div class="error-message">
+            @if (f['telefono'].errors?.['required']) {
+            <div>El teléfono es requerido.</div>
+            }
+            @if (f['telefono'].errors?.['pattern']) {
+            <div>El teléfono debe tener exactamente 13 dígitos.</div>
+            }
+        </div>
+        }
     </div>
+
     <div>
         <label for="mensaje">Mensaje:</label>
         <textarea id="mensaje" formControlName="mensaje"></textarea>
+
+        @if (f['mensaje'].invalid && (f['mensaje'].dirty || f['mensaje'].touched)) {
+        <div class="error-message">
+            @if (f['mensaje'].errors?.['required']) {
+            <div>El mensaje es requerido.</div>
+            }
+            @if (f['mensaje'].errors?.['minlength']) {
+            <div>El mensaje debe tener al menos 50 caracteres.</div>
+            }
+        </div>
+        }
     </div>
+
     <div>
         <label>
             <input type="checkbox" formControlName="aceptarTerminos" />
             Acepto los términos y condiciones
         </label>
+
+        @if (f['aceptarTerminos'].invalid && (f['aceptarTerminos'].dirty || f['aceptarTerminos'].touched)) {
+        <div class="error-message">
+            @if (f['aceptarTerminos'].errors?.['requiredTrue']) {
+            <div>Debes aceptar los términos y condiciones para continuar.</div>
+            }
+        </div>
+        }
     </div>
+
     <div>
         <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
     </div>

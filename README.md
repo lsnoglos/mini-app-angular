@@ -1,5 +1,9 @@
 # MiMiniApp
 
+---
+LINK DE LA APP [ENTRAR A LA APP](https://lsnoglos.github.io/mini-app-angular/home) <---
+---
+---
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7.
 
 ## Development server
@@ -14,7 +18,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ---
 
-## 🚀 Características Principales
+## Características Principales
 
 * **100% Standalone Components:** Toda la aplicación está construida sin `NgModules`.
 * **Sistema de Rutas:**
@@ -25,7 +29,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 * **Mensajes de Error Dinámicos:** Los errores solo se muestran si el campo ha sido "tocado" (`dirty` o `touched`), usando la sintaxis moderna `@if`.
 * **Persistencia de Datos:** Los envíos válidos se guardan en el `localStorage` del navegador.
 
-## 📋 Requisitos del Formulario
+## Requisitos del Formulario
 
 El formulario (`/contacto`) cumple con las siguientes reglas de negocio:
 
@@ -35,7 +39,7 @@ El formulario (`/contacto`) cumple con las siguientes reglas de negocio:
 * **Mensaje:** Obligatorio, mínimo 50 caracteres.
 * **Aceptar términos:** Obligatorio (checkbox).
 
-## 🛠️ Stack de Tecnologías
+## Stack de Tecnologías
 
 * **[Angular](https://angular.io/) (v20+)**
 * **[TypeScript](https://www.typescriptlang.org/)**
